@@ -1,5 +1,5 @@
 ---
-import '../../styles/catania/our-work.css';
+import '../../styles/oblam/our-work.css';
 import { Image } from 'astro:assets';
 import { resolveImage } from '../../utils/imageResolver.ts';
 
@@ -38,7 +38,7 @@ const resolvedImages = imageFiles.map(img => resolveImage(img));
             <Image 
               class="ourwork-image" 
               src={imageSrc} 
-              alt={title || 'Catania Kitchen Work'} 
+              alt={title || 'Oblam Kitchen Work'} 
               widths={[300, 600, 900]}
               sizes="(max-width: 768px) 400px, 400px"
               quality="mid"

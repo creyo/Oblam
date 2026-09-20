@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import '../../styles/catania/header.css';
+import '../../styles/oblam/header.css';
 import { parseMenuString } from '../../utils/menuParser';
 import { resolveImage } from '../../utils/imageResolver';
 
@@ -30,11 +30,11 @@ const phoneHref = 'tel:+97165358448';
 <header class="site-header" id="site-header">
   <div class="header-main">
     <div class="header-logo">
-      <a href="/" aria-label={`${settings?.name || 'Catania'} - Go to homepage`}>
+      <a href="/" aria-label={`${settings?.name || 'oblam'} - Go to homepage`}>
         {logoAsset && (
           <Image
             src={logoAsset}
-            alt={`${settings?.name || 'Catania'} logo`}
+            alt={`${settings?.name || 'Oblam'} logo`}
             width={300}
             loading="eager"
             decoding="async"
