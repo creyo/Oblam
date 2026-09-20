@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Top from '../../components/oblam/Top.astro';
+import Blog from '../../components/oblam/Blog.astro';
+import { frontmatter } from '../../content/blog.mdx';
+
+const topItem = frontmatter.data.find((c) => c.section === 'Top' && (c.publish || 'Y').toUpperCase() === 'Y');
+
+const blogItem = frontmatter.data.find((c) => c.section === 'Blog' && (c.publish || 'Y').toUpperCase() === 'Y');
+
+
+---
+<Layout
+  title={frontmatter.metaTitle || "Blog"}
+  description={frontmatter.metaDescription || "Default description"}
+>
+{topItem && <Top {...topItem} folderPath="blog" />}
+{blogItem && <Blog {...blogItem} folderPath="blog" />}
+
+</Layout>

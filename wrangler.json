@@ -1,0 +1,13 @@
+{
+	"name": "catania",
+	"compatibility_date": "2025-10-08",
+	"compatibility_flags": ["nodejs_compat"],
+	"assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+	},
+	"observability": {
+		"enabled": true
+	},
+	"upload_source_maps": true
+}

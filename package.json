@@ -1,0 +1,26 @@
+{
+  "name": "catania",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "node scripts/fetch-sections.js && node scripts/generate-pages-from-mdx.js && astro dev",
+    "build": "node scripts/fetch-sections.js && node scripts/generate-pages-from-mdx.js && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^6.0.1",
+    "@fontsource/poppins": "^5.2.7",
+    "astro": "^6.3.7",
+    "csv-parse": "^6.2.1",
+    "esbuild": "^0.28.1",
+    "gray-matter": "^4.0.3",
+    "sharp": "^0.35.3"
+  },
+  "devDependencies": {
+    "wrangler": "^4.131.1"
+  }
+}
