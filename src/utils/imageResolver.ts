@@ -1,6 +1,6 @@
 import type { ImageMetadata } from 'astro';
 import { frontmatter as settingsFrontmatter } from '../content/settings.mdx';
-import fallbackImage from '../assets/images/oblam/about-us.jpg';
+import fallbackImage from '../assets/images/oblam/oblam-core-features1-home.jpg';
 
 // Eagerly import all images in src/assets/images and all subfolders (oblam, steelcraft, etc.)
 const localImages = import.meta.glob<{ default: ImageMetadata }>(
