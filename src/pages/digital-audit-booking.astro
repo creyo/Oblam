@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HomeTop from '../components/oblam/HomeTop.astro';
+import WhoWeAre from '../components/oblam/WhoWeAre.astro';
+import Feature from '../components/oblam/Feature.astro';
+import FAQ from '../components/oblam/FAQ.astro';
+import LastBlock from '../components/oblam/LastBlock.astro';
+import { frontmatter } from '../content/digital-audit-booking.mdx';
+
+const topItem = frontmatter.data.find((c) => c.section === 'Top' && (c.publish || 'Y').toUpperCase() === 'Y');
+
+const feature1Item = frontmatter.data.find((c) => c.section === 'Feature1' && (c.publish || 'Y').toUpperCase() === 'Y');
+
+const feature3Items = frontmatter.data.filter((c) => c.section === 'Feature3' && (c.publish || 'Y').toUpperCase() === 'Y').sort((a, b) => Number(a.order || 0) - Number(b.order || 0));
+
+const feature4Items = frontmatter.data.filter((c) => c.section === 'Feature4' && (c.publish || 'Y').toUpperCase() === 'Y').sort((a, b) => Number(a.order || 0) - Number(b.order || 0));
+
+const faqItems = frontmatter.data.filter((c) => c.section === 'FAQ' && (c.publish || 'Y').toUpperCase() === 'Y').sort((a, b) => Number(a.order || 0) - Number(b.order || 0));
+
+const lastblockItem = frontmatter.data.find((c) => c.section === 'LastBlock' && (c.publish || 'Y').toUpperCase() === 'Y');
+
+
+---
+<Layout
+  title={frontmatter.metaTitle || "Digital Audit"}
+  description={frontmatter.metaDescription || "Default description"}
+>
+{topItem && <HomeTop {...topItem} folderPath="digital-audit-booking" />}
+{feature1Item && <WhoWeAre {...feature1Item} folderPath="digital-audit-booking" />}
+{feature3Items.length > 0 && <Feature items={feature3Items} folderPath="digital-audit-booking" />}
+{feature4Items.length > 0 && <Feature items={feature4Items} folderPath="digital-audit-booking" />}
+{faqItems.length > 0 && <FAQ items={faqItems} folderPath="digital-audit-booking" />}
+{lastblockItem && <LastBlock {...lastblockItem} folderPath="digital-audit-booking" />}
+
+</Layout>
