@@ -1,8 +1,8 @@
 import type { ImageMetadata } from 'astro';
 import { frontmatter as settingsFrontmatter } from '../content/settings.mdx';
-import fallbackImage from '../assets/images/catania/about-us.jpg';
+import fallbackImage from '../assets/images/oblam/about-us.jpg';
 
-// Eagerly import all images in src/assets/images and all subfolders (catania, steelcraft, etc.)
+// Eagerly import all images in src/assets/images and all subfolders (oblam, steelcraft, etc.)
 const localImages = import.meta.glob<{ default: ImageMetadata }>(
   '/src/assets/images/**/*.{jpeg,jpg,png,gif,webp,avif,svg,PNG,JPG,JPEG,WEBP,AVIF}',
   { eager: true }
@@ -28,7 +28,7 @@ export function resolveArticleImage(
   // Clean up leading/trailing spaces or slashes
   const cleanName = imageFeatured.trim().replace(/^\//, '');
 
-  // Determine active theme folder name (e.g. "catania" or "steelcraft") from settings.mdx
+  // Determine active theme folder name (e.g. "oblam" or "steelcraft") from settings.mdx
   const themeFolder = (settingsFrontmatter?.theme || '').toLowerCase();
 
   // Try finding the image in the active theme folder first
