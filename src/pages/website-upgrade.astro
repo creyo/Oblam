@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HomeTop from '../components/oblam/HomeTop.astro';
+import Feature from '../components/oblam/Feature.astro';
+import LastBlock from '../components/oblam/LastBlock.astro';
+import { frontmatter } from '../content/website-upgrade.mdx';
+
+const topItem = frontmatter.data.find((c) => c.section === 'Top' && (c.publish || 'Y').toUpperCase() === 'Y');
+
+const feature2Items = frontmatter.data.filter((c) => c.section === 'Feature2' && (c.publish || 'Y').toUpperCase() === 'Y').sort((a, b) => Number(a.order || 0) - Number(b.order || 0));
+
+const feature3Items = frontmatter.data.filter((c) => c.section === 'Feature3' && (c.publish || 'Y').toUpperCase() === 'Y').sort((a, b) => Number(a.order || 0) - Number(b.order || 0));
+
+const feature4Items = frontmatter.data.filter((c) => c.section === 'Feature4' && (c.publish || 'Y').toUpperCase() === 'Y').sort((a, b) => Number(a.order || 0) - Number(b.order || 0));
+
+const feature5Items = frontmatter.data.filter((c) => c.section === 'Feature5' && (c.publish || 'Y').toUpperCase() === 'Y').sort((a, b) => Number(a.order || 0) - Number(b.order || 0));
+
+const lastblockItem = frontmatter.data.find((c) => c.section === 'LastBlock' && (c.publish || 'Y').toUpperCase() === 'Y');
+
+
+---
+<Layout
+  title={frontmatter.metaTitle || "Website Upgrade"}
+  description={frontmatter.metaDescription || "Default description"}
+>
+{topItem && <HomeTop {...topItem} folderPath="website-upgrade" />}
+{feature2Items.length > 0 && <Feature items={feature2Items} folderPath="website-upgrade" />}
+{feature3Items.length > 0 && <Feature items={feature3Items} folderPath="website-upgrade" />}
+{feature4Items.length > 0 && <Feature items={feature4Items} folderPath="website-upgrade" />}
+{feature5Items.length > 0 && <Feature items={feature5Items} folderPath="website-upgrade" />}
+{lastblockItem && <LastBlock {...lastblockItem} folderPath="website-upgrade" />}
+
+</Layout>
